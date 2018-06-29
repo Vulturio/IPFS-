@@ -73,7 +73,7 @@ class App extends Component {
     reader.readAsArrayBuffer(file)
     reader.onloadend = () => {
       this.setState({ buffer: Buffer(reader.result) })
-      console.log('buffer', this.state.buffer)
+      console.log('buffer ' + this.state.buffer)
     }
   }
 
@@ -85,8 +85,9 @@ class App extends Component {
         return
       }
       this.simpleStorageInstance.set(result[0].hash, { from: this.state.account }).then((r) => {
+          console.log('ifpsHash ' + this.state.ipfsHash)
         return this.setState({ ipfsHash: result[0].hash })
-        console.log('ifpsHash', this.state.ipfsHash)
+      
       })
     })
   }
